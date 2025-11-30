@@ -54,7 +54,7 @@ func (e *Encoder) encode(data any, visited map[uintptr]bool) (string, error) {
 		default:
 			b, err := json.Marshal(data)
 			if err != nil {
-				return "", err
+				return "", fmt.Errorf("failed to encode value of type %T: %w", data, err)
 			}
 			return string(b), nil
 		}

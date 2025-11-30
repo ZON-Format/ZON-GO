@@ -45,6 +45,8 @@ const (
 	ErrRowCountMismatch = "E001"
 	// ErrFieldCountMismatch indicates the field count doesn't match the column count
 	ErrFieldCountMismatch = "E002"
+	// ErrMalformedHeader indicates an invalid table header format
+	ErrMalformedHeader = "E003"
 	// ErrDocumentTooLarge indicates the document exceeds the maximum size
 	ErrDocumentTooLarge = "E301"
 	// ErrLineTooLong indicates a line exceeds the maximum length
@@ -53,6 +55,8 @@ const (
 	ErrArrayTooLarge = "E303"
 	// ErrTooManyKeys indicates an object has too many keys
 	ErrTooManyKeys = "E304"
+	// ErrNestingTooDeep indicates the nesting depth exceeds the maximum
+	ErrNestingTooDeep = "E305"
 )
 
 // EncodeError represents an error that occurred during ZON encoding.

@@ -341,7 +341,7 @@ func (d *Decoder) parseTableHeader(line string) (string, *tableInfo, error) {
 		}, nil
 	}
 
-	return "", nil, NewDecodeError("E003", "Invalid table header: "+line, 0, "")
+	return "", nil, NewDecodeError(ErrMalformedHeader, "Invalid table header: "+line, 0, "")
 }
 
 // parseTableRow parses a table row.
@@ -448,7 +448,7 @@ func (d *Decoder) reconstructTable(table *tableInfo) []any {
 // parseZonNode parses a ZON nested format.
 func (d *Decoder) parseZonNode(text string, depth int) (any, error) {
 	if depth > MaxNestingDepth {
-		return nil, NewDecodeError("", "Maximum nesting depth exceeded (100)", 0, "")
+		return nil, NewDecodeError(ErrNestingTooDeep, "Maximum nesting depth exceeded (100)", 0, "")
 	}
 
 	trimmed := strings.TrimSpace(text)
